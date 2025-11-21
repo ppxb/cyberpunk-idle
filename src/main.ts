@@ -1,9 +1,16 @@
 import { createApp } from 'vue'
 
-import App from './App.vue'
+import { setupStore } from '@/store'
 
+import App from './App.vue'
 import 'uno.css'
 
-const app = createApp(App)
+async function bootstrap() {
+  const app = createApp(App)
 
-app.mount('#app')
+  setupStore(app)
+
+  app.mount('#app')
+}
+
+bootstrap()
